@@ -1,9 +1,17 @@
 import axios from "axios";
 
+
+// curl --request GET \
+//      --url 'https://api.yelp.com/v3/businesses/search?location=san%20jose&sort_by=best_match&limit=20' \
+//      --header 'Authorization: Bearer GQoB9tZHI95hQiVL_hX4h-wDRDyr9VQmfjxoZTAmUdBY5dJ8xPdiEcV7QaFi92K7n0ZfWqCos5t4BVqlkwLRcuhckY_Wv5adMM-jRlHwdZrsbqSOJtRU7XzY6kf8Y3Yx' \
+//      --header 'accept: application/json'
+
+
 export default axios.create({
-    baseURL: 'https://api.yelp.com/v3/businesses',
+    baseURL: 'https://api.yelp.com/v3/businesses/search?location=san%20jose&sort_by=best_match&limit=20', 
+    //'https://api.yelp.com/v3/businesses',
     headers: {
-        Authorization: 'Bearer Jw0oIMgpId1HV8x-mogAapr36SVRDSAM00qOEvAmLyxCaOV1I0T6kzJbSvazjA6Q7sNS46uHfHzRzLLAESkHYv3ES50h-sUQwtwvh836OsN-D5UwO6ObMswyxDM6YXYx'
+        Authorization: 'Bearer GQoB9tZHI95hQiVL_hX4h-wDRDyr9VQmfjxoZTAmUdBY5dJ8xPdiEcV7QaFi92K7n0ZfWqCos5t4BVqlkwLRcuhckY_Wv5adMM-jRlHwdZrsbqSOJtRU7XzY6kf8Y3Yx'
     }
 });
 
