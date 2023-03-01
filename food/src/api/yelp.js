@@ -8,8 +8,7 @@ import axios from "axios";
 
 
 export default axios.create({
-    baseURL: 'https://api.yelp.com/v3/businesses/search?location=san%20jose&sort_by=best_match&limit=20', 
-    //'https://api.yelp.com/v3/businesses',
+    baseURL: 'https://api.yelp.com/v3/businesses',
     headers: {
         Authorization: 'Bearer GQoB9tZHI95hQiVL_hX4h-wDRDyr9VQmfjxoZTAmUdBY5dJ8xPdiEcV7QaFi92K7n0ZfWqCos5t4BVqlkwLRcuhckY_Wv5adMM-jRlHwdZrsbqSOJtRU7XzY6kf8Y3Yx'
     }

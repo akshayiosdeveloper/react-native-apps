@@ -3,33 +3,44 @@ import { View,Text,StyleSheet } from "react-native";
 import SearchBar from "./components/SearchBar";
 import yelp from "../api/yelp";
 const SearchScreen = () => {
-  const [keyword, setKeyword] =  useState('');
+  const [term, setTerm] =  useState('');
   const [results, setResults] = useState([]);
   const [errorMessage, setErrorMessage] = useState('');
-  const searchApi = async () => {
+  async function searchApi(searchKeyword) {
     try {
-   const response = await yelp.get('', {
-    // params: {
-    //   limit:50,
-    //   keyword,
-    //   location: 'san jose'
-    // }
-   });
-  setResults(response.data.businesses)
-  console.log(response.data);
-    } 
-    catch (err) {
-     console.log(err)
+      const response = await yelp.get('/search',{
+        params: {
+          location: 'san jose',
+          term: searchKeyword,
+          limit:50
+        }
+      })
+      .then(function (response) {
+        console.log(response.data.businesses);
+        setResults(response.data.businesses);
+      })
+      .catch(function (error) {
+        console.log(error);
+        setErrorMessage("Some thing went wrong!!")
+      })
+      .finally(function () {
+        console.log("Always executed!!")
+      });
+      
+    } catch (error) {
+      console.error(error);
+      
     }
-  };
+  }
+
   return (
     <View style={styles.background}>
       <SearchBar 
-      keyword={keyword} 
-      onKeywordChange={ setKeyword }
-      onTermSubmit={searchApi}
+      term={term} 
+      onTermChange={setTerm }
+      onTermSubmit={() => searchApi(term)}
       />
-        <Text>{errorMessage}</Text>
+      {errorMessage ? <Text> {errorMessage}</Text> : null}
         <Text>We have found {results.length} results</Text>
     </View>
   );
