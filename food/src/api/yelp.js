@@ -14,3 +14,22 @@ export default axios.create({
     }
 });
 
+  
+  /*const searchApi = async () => {
+    try {
+   const response = await yelp.get('/search', {
+    params: {
+      location: 'san jose',
+      term: 'pasta',
+      limit:50
+    }
+    
+   });
+  setResults(response.data.businesses)
+  //console.log(response.data);
+    } 
+    catch (err) {
+     console.log(err)
+    }
+  };
+  */
