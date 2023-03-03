@@ -19,7 +19,7 @@ export default () => {
           setResults(response.data.businesses);
         })
         .catch(function (error) {
-          console.log(error);
+          //console.log(error);
           setErrorMessage("Some thing went wrong!!")
         })
         .finally(function () {
