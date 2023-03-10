@@ -8,7 +8,6 @@ import ResultList from "./components/ResultsList";
 const SearchScreen = () => {
   const [term, setTerm] =  useState('');
   const [searchApi,results,errorMessage] = useResults();
-  console.log("---->",results);
 
 const filterResultByPrice = (price) => {
     // price === '$' || price === '$$' || price === '$$$'
@@ -29,7 +28,7 @@ const filterResultByPrice = (price) => {
         <ScrollView>
         <ResultList results={filterResultByPrice('$')} title="Cost Effective" />
         <ResultList results={filterResultByPrice('$$')} title="Bit Pricer" />
-        <ResultList results={filterResultByPrice('$$$')} title="Big Spender"/>
+        <ResultList results={filterResultByPrice('$$$')} title="Big Spender" />
         </ScrollView>
     </>
   );
