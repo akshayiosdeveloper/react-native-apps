@@ -1,18 +1,22 @@
-import React,{useState} from "react";
-
-const BlogContext = React.createContext();
-
-// use context for passing value to the nested children.
-export const BlogProvider = ({children}) => {
-    
-  const [blogPosts, setBlogPosts] = useState([]);
-
-  const addBlogPost = () => {
-   setBlogPosts([...blogPosts, {title:`Blog post #${blogPosts.length + 1}`}]);
+import createDataContext from "./createDataContext";
+const blogReducer = (state,action) => {
+ switch(action.type) {
+   case 'add_blogpost':
+  return [...state, {title:`BlogPost #${state.length + 1}`}];
+  default :
+  return state; 
+ }
+};
+const addBlogPost = dispatch => {
+  return () => {
+    dispatch({type: 'add_blogpost'});
   };
- return <BlogContext.Provider value={{data:blogPosts,addBlogPost:addBlogPost}}>
- {children}
- </BlogContext.Provider>
 };
 
-export default BlogContext;
+export const { Context , Provider} = createDataContext(
+  blogReducer,
+  {addBlogPost},
+  []
+  );
+
+
