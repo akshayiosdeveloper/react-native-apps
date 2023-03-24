@@ -15,12 +15,14 @@ const blogReducer = (state,action) => {
   return state; 
  }
 };
+// add post functionality
 const addBlogPost = dispatch => {
   return () => {
     dispatch({type: 'add_blogpost'});
   };
 };
 
+// delete post functionality
 const deleteBlogPost = dispatch => {
   return (id) => {
     dispatch({type: 'delete_blogpost',payload:id});
