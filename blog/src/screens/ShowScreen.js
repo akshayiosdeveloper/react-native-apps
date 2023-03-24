@@ -1,6 +1,7 @@
 import React from "react";
 import { View,Text,StyleSheet } from "react-native";
 
+// this screen show the single post when click on list of post
 const ShowScreen = () => {
    return (
     <View>
