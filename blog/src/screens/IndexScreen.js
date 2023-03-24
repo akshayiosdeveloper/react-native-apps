@@ -3,10 +3,11 @@ import { View,Text,StyleSheet,FlatList,Button,TouchableOpacity } from "react-nat
 import {Context} from "../context/BlogContext";
 import { Feather } from '@expo/vector-icons'; 
 
-const IndexScreen = () => {
+const IndexScreen = ({navigation}) => {
     // destructuring the object here
     const {state, addBlogPost,deleteBlogPost} = useContext(Context);
     return (
+      <TouchableOpacity onPress={() => navigation.navigate('Show')}>
         <View>
        <Text>IndexScreen</Text>
        <Button title="Add Post" onPress={addBlogPost } />
@@ -14,16 +15,18 @@ const IndexScreen = () => {
        keyExtractor={(blogPost)=> blogPost.title}
        renderItem={({item}) => {
          return <View style={styles.row}>
-         <Text style={styles.title}>{item.title} - {item.id}</Text>
-         // Passing id of the post when user click on delete button
+         <Text style={styles.title}>
+           {item.title} - {item.id}
+            </Text>
          <TouchableOpacity onPress={() => deleteBlogPost(item.id) } >
          <Feather name="trash" size={24} color="black" />
-
          </TouchableOpacity>
          </View>
        }}
       />
         </View>
+        </TouchableOpacity>
+
     );
 }
 
