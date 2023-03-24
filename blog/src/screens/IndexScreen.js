@@ -15,7 +15,7 @@ const IndexScreen = () => {
        renderItem={({item}) => {
          return <View style={styles.row}>
          <Text style={styles.title}>{item.title} - {item.id}</Text>
-
+         // Passing id of the post when user click on delete button
          <TouchableOpacity onPress={() => deleteBlogPost(item.id) } >
          <Feather name="trash" size={24} color="black" />
 
