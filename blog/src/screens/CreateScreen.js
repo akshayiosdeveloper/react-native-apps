@@ -2,6 +2,7 @@ import React,{useContext,useState} from "react";
 import { View,Text,StyleSheet,TextInput } from "react-native";
 import { Context } from "../context/BlogContext";
 
+// Create Add Post Screen 
 const CreateScreen = () => {
     const [title, setTitle] = useState('');
     const [content, setContent] = useState('');
