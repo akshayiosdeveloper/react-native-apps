@@ -1,8 +1,7 @@
 import React,{useContext,useState} from "react";
-import { View,Text,StyleSheet,TextInput } from "react-native";
+import { View,Text,StyleSheet,TextInput,Button } from "react-native";
 import { Context } from "../context/BlogContext";
 
-// Create Add Post Screen 
 const CreateScreen = () => {
     const [title, setTitle] = useState('');
     const [content, setContent] = useState('');
@@ -12,6 +11,9 @@ const CreateScreen = () => {
         <TextInput style={styles.input} value={title} onChangeText={(text) => setTitle(text)} />
         <Text style={styles.label}> Enter Content: </Text>
         <TextInput style={styles.input} value={content} onChangeText={(content) => setContent(content)} />
+    <Button title="Add Blog Post">
+        
+    </Button>
     </View>
    );
 };
