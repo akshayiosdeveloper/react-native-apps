@@ -1,6 +1,8 @@
 import React from "react";
 import { View,Text,StyleSheet } from "react-native";
 
+// Edit screen 
+
 const EditScreen = () => {
     return (
     <View>
