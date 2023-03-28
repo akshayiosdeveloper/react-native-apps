@@ -31,6 +31,7 @@ const deleteBlogPost = dispatch => {
   };
 };
 
+//third parameter is used to  pass the value  as parameter.
 export const { Context , Provider} = createDataContext(
   blogReducer,
   {addBlogPost,deleteBlogPost},
