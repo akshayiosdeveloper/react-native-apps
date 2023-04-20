@@ -3,6 +3,7 @@ import { View,Text,StyleSheet } from "react-native";
 import { Context } from "../context/BlogContext";
 // Edit screen 
 
+
 const EditScreen = ({navigation}) => {
     const {state} = useContext(Context);
     const blogPost = state.find(
